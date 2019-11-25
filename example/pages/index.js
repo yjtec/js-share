@@ -19,7 +19,7 @@ class IndexContainer extends React.Component{
   render(){
     return(
       <div>
-        <Link to="/test">而页面</Link>
+        <Link to="/test">测试页面</Link>
       </div>
     )
   }

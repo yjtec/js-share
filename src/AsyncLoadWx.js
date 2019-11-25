@@ -5,7 +5,7 @@ const loadWx = async (callback) => {
   if (isLoaderWx) {
     return Promise.resolve(window.wx);
   }
-  const re = await importCDN("http://res.wx.qq.com/open/js/jweixin-1.4.0.js",'wx');
+  const re = await importCDN("//res.wx.qq.com/open/js/jweixin-1.4.0.js",'wx');
 
   isLoaderWx  = true;
   if(callback) callback();
