@@ -44,7 +44,7 @@ function () {
 
           case 2:
             _context.next = 4;
-            return importCDN("http://res.wx.qq.com/open/js/jweixin-1.4.0.js", 'wx');
+            return importCDN("//res.wx.qq.com/open/js/jweixin-1.4.0.js", 'wx');
 
           case 4:
             re = _context.sent;
