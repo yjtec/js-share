@@ -5,7 +5,6 @@ class Share{
     this.link = link;
     this.desc = desc;
     this.imgUrl = imgUrl;
-
     wx.ready(()=>{
       this.toFriend();
       this.toTimeline();

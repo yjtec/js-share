@@ -6,6 +6,15 @@ export default {
       jsApiList:['updateAppMessageShareData','updateTimelineShareData']
     }]
   ],
+  routes:[{
+    path:'/',
+    routes:[{
+      path:'/',redirect:'/home/index'
+    },{
+      path:'/home/index',
+      component:'./index'
+    }]
+  }],
   proxy: {
     '/api':{
       target: 'http://dev.gateway.360vrsh.com/api/',

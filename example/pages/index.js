@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './index.css';
 import Link from 'umi/link';
-import {wxUtils} from 'yjtec-wx';
+import {wxUtils,WxContext,create} from 'yjtec-wx';
 
 class IndexContainer extends React.Component{
+  static contextType = WxContext;
   componentDidMount(){
+    console.log(this);
     wxUtils.optionMenu(true);
     wxUtils.share({
       title:'二大爷',
@@ -24,4 +26,4 @@ class IndexContainer extends React.Component{
     )
   }
 }
-export default IndexContainer;
+export default create(IndexContainer);

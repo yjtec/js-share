@@ -10,20 +10,33 @@ const Router = DefaultRouter;
 const routes = [
   {
     path: '/',
+    redirect: '/home/index',
     exact: true,
-    component: require('../index.js').default,
   },
   {
-    path: '/test',
-    exact: true,
-    component: require('../test.js').default,
+    path: '/',
+    routes: [
+      {
+        path: '/home/index',
+        component: require('../index').default,
+        exact: true,
+      },
+      {
+        component: () =>
+          React.createElement(
+            require('/Users/kidkang/.config/yarn/global/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+              .default,
+            { pagesPath: 'pages', hasRoutesInConfig: true },
+          ),
+      },
+    ],
   },
   {
     component: () =>
       React.createElement(
         require('/Users/kidkang/.config/yarn/global/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
           .default,
-        { pagesPath: 'pages', hasRoutesInConfig: false },
+        { pagesPath: 'pages', hasRoutesInConfig: true },
       ),
   },
 ];

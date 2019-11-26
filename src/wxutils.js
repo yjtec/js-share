@@ -1,5 +1,4 @@
 import Share from './Share';
-console.log(Share);
 let wxUtils = {};
 wxUtils.share = function(shareInfo){
   const s = new Share();

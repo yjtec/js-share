@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-wx",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "yjtec wx",
   "main": "lib/index.js",
   "files":["lib","template"],
