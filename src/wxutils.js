@@ -1,9 +1,11 @@
 import Share from './Share';
+import {getPosition} from './Position';
 let wxUtils = {};
 wxUtils.share = function(shareInfo){
   const s = new Share();
   s.init(shareInfo);
 }
+wxUtils.getPosition = getPosition;
 wxUtils.optionMenu = function(open = true) {
   if (open) {
     openOptionMenu();

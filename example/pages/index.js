@@ -6,7 +6,6 @@ import {wxUtils,WxContext,create} from 'yjtec-wx';
 class IndexContainer extends React.Component{
   static contextType = WxContext;
   componentDidMount(){
-    console.log(this);
     wxUtils.optionMenu(true);
     wxUtils.share({
       title:'二大爷',
@@ -14,6 +13,13 @@ class IndexContainer extends React.Component{
       link:'http://ksj.npay.hnyjkj.com/',
       imgUrl:'https://test360vrsh.oss-cn-qingdao.aliyuncs.com/admin_image/UUdhFJLD0utovejdfisSDtObN6SEtN5by77rZ1do.jpeg?x-oss-process=style/store_avatar'
     })
+
+    // window.wx.getLocation({
+    //   type:'wgs84',
+    //   success:function(res){
+    //     console.log(res);
+    //   }
+    // })
   }
   componentWillUnmount(){
     wxUtils.optionMenu(false);

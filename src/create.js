@@ -1,5 +1,6 @@
 import React,{Component,Fragment} from 'react';
 import {WxContext,Jsapi} from 'yjtec-wx';
+
 export default function(Ele){
   return class WxContainer extends Component{
     static contextType = WxContext;
@@ -10,13 +11,15 @@ export default function(Ele){
       }
     }    
     async componentDidMount(){
-      //console.log(this.props);
-      const {action,...rest} = this.context;
-      const {data} = await Jsapi(action);
-      window.wx.config({
-        ...rest,
-        ...data
-      })
+      const {wxOk,...config} = this.context;
+      if(!wxOk){
+        const {action,...rest} = config;
+        const {data} = await Jsapi(action);
+        const re = window.wx.config({
+          ...rest,
+          ...data
+        })
+      }
       this.setState({
         loading:false
       })

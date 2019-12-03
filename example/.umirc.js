@@ -3,7 +3,7 @@ export default {
     ['umi-plugin-wx',{
       debug:true,
       action:'/api/cmm/share',
-      jsApiList:['updateAppMessageShareData','updateTimelineShareData']
+      jsApiList:['updateAppMessageShareData','updateTimelineShareData','getLocation']
     }]
   ],
   routes:[{
@@ -13,6 +13,9 @@ export default {
     },{
       path:'/home/index',
       component:'./index'
+    },{
+      path:'/test',
+      component:'./test'
     }]
   }],
   proxy: {

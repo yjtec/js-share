@@ -12,38 +12,37 @@ const defaultConfig = {
   jsApiList:[
     'updateAppMessageShareData',
     'updateTimelineShareData',
+    'getLocation',
   ]
 }
 class WxWrapper extends Component{
   constructor(props) {
     super(props);
     this.state ={
-      loading:true
+      loading:true,
+      wxOk:true
     }
   }
   async componentDidMount(){
     const {action,...rest} = defaultConfig;
     const re = await loadWx();
-    // await init(defaultConfig);
-    this.setState({
-      loading:false
+    const {data} = await Jsapi(action);
+    window.wx.config({
+      ...rest,
+      ...data
     })
-    
-    // const {data} = await Jsapi(action);
-    // window.wx.config({
-    //   ...rest,
-    //   ...data
-    // })
-    // wxUtils.optionMenu(false);
-    // this.setState({
-    //   loading:false
-    // })
-    // window.wx.error(res => {
-    //   window.history.go(0);
-    //   console.log(re);
-    // })
-    
-    
+    setTimeout(()=>{
+      window.wx.error(res => {
+        this.setState({
+          wxOk:false
+        })
+      })
+      window.wx.ready(res => {
+        this.setState({
+          loading:false
+        })
+      })
+    },100)
   }
   render(){
     const {children} = this.props;

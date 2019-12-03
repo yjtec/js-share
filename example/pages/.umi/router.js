@@ -22,6 +22,11 @@ const routes = [
         exact: true,
       },
       {
+        path: '/test',
+        component: require('../test').default,
+        exact: true,
+      },
+      {
         component: () =>
           React.createElement(
             require('/Users/kidkang/.config/yarn/global/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
