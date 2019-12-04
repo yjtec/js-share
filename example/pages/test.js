@@ -19,7 +19,8 @@ import {wxUtils,create} from 'yjtec-wx';
 
 class TestComponent extends React.Component{
   async componentDidMount(){
-    // const re = await wxUtils.getPosition();
+    const re = await wxUtils.getPosition();
+    console.log(re);
     // alert(JSON.stringify(re));
     // console.log(re,99999);    
     // wxUtils.optionMenu(true);

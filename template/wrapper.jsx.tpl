@@ -4,7 +4,7 @@ import {
   loadWx,
   Jsapi,
   wxUtils,
-  init
+  isWx
 } from 'yjtec-wx';
 const defaultConfig = {
   action:'{{&action}}',
@@ -24,25 +24,31 @@ class WxWrapper extends Component{
     }
   }
   async componentDidMount(){
-    const {action,...rest} = defaultConfig;
     const re = await loadWx();
-    const {data} = await Jsapi(action);
-    window.wx.config({
-      ...rest,
-      ...data
-    })
-    setTimeout(()=>{
-      window.wx.error(res => {
-        this.setState({
-          wxOk:false
-        })
+    if(isWx()){
+      const {action,...rest} = defaultConfig;
+      const {data} = await Jsapi(action);
+      window.wx.config({
+        ...rest,
+        ...data
       })
-      window.wx.ready(res => {
-        this.setState({
-          loading:false
+      setTimeout(()=>{
+        window.wx.error(res => {
+          this.setState({
+            wxOk:false
+          })
         })
+        window.wx.ready(res => {
+          this.setState({
+            loading:false
+          })
+        })
+      },100)
+    }else{
+      this.setState({
+        loading:false
       })
-    },100)
+    }
   }
   render(){
     const {children} = this.props;

@@ -1,7 +1,7 @@
 export default {
   plugins:[
     ['umi-plugin-wx',{
-      debug:true,
+      debug:false,
       action:'/api/cmm/share',
       jsApiList:['updateAppMessageShareData','updateTimelineShareData','getLocation']
     }]
