@@ -12,14 +12,14 @@ export default function(Ele){
     }    
     async componentDidMount(){
       const {wxOk,...config} = this.context;
-      if(!wxOk){
-        const {action,...rest} = config;
-        const {data} = await Jsapi(action);
-        const re = window.wx.config({
-          ...rest,
-          ...data
-        })
-      }
+      // if(!wxOk){
+      const {action,...rest} = config;
+      const {data} = await Jsapi(action);
+      const re = window.wx.config({
+        ...rest,
+        ...data
+      })
+      // }
       this.setState({
         loading:false
       })

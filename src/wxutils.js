@@ -1,17 +1,30 @@
 import Share from './Share';
 import {getPosition} from './Position';
+import {Jsapi,getConfig} from './wx';
 let wxUtils = {};
 wxUtils.share = function(shareInfo){
   const s = new Share();
   s.init(shareInfo);
 }
+
+const asyncConfig = async (action) => {
+  return Jsapi(action);
+}
 wxUtils.getPosition = getPosition;
 wxUtils.optionMenu = function(open = true) {
-  if (open) {
-    openOptionMenu();
-  } else {
-    disabledOptionMenu();
-  }
+  const {action,...rest} = getConfig();
+  asyncConfig(action).then(re => {
+    wx.config({
+      ...rest,
+      ...re.data
+    })
+    if (open) {
+      openOptionMenu();
+    } else {
+      disabledOptionMenu();
+    }
+  })
+  
 }
 
 function openOptionMenu() {

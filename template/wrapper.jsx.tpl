@@ -4,7 +4,8 @@ import {
   loadWx,
   Jsapi,
   wxUtils,
-  isWx
+  isWx,
+  setconfig
 } from 'yjtec-wx';
 const defaultConfig = {
   action:'{{&action}}',
@@ -15,6 +16,7 @@ const defaultConfig = {
     {{/jsApiList}}
   ]
 }
+setconfig(defaultConfig);
 class WxWrapper extends Component{
   constructor(props) {
     super(props);

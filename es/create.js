@@ -64,28 +64,22 @@ export default function (Ele) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  _this$context = this.context, wxOk = _this$context.wxOk, config = _objectWithoutProperties(_this$context, ["wxOk"]);
-
-                  if (wxOk) {
-                    _context.next = 8;
-                    break;
-                  }
+                  _this$context = this.context, wxOk = _this$context.wxOk, config = _objectWithoutProperties(_this$context, ["wxOk"]); // if(!wxOk){
 
                   action = config.action, rest = _objectWithoutProperties(config, ["action"]);
-                  _context.next = 5;
+                  _context.next = 4;
                   return Jsapi(action);
 
-                case 5:
+                case 4:
                   _ref = _context.sent;
                   data = _ref.data;
-                  re = window.wx.config(_objectSpread({}, rest, {}, data));
+                  re = window.wx.config(_objectSpread({}, rest, {}, data)); // }
 
-                case 8:
                   this.setState({
                     loading: false
                   });
 
-                case 9:
+                case 8:
                 case "end":
                   return _context.stop();
               }

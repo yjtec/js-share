@@ -4,17 +4,19 @@ import {
   loadWx,
   Jsapi,
   wxUtils,
-  isWx
+  isWx,
+  setconfig
 } from 'yjtec-wx';
 const defaultConfig = {
   action:'/api/cmm/share',
-  debug:false,
+  debug:true,
   jsApiList:[
     'updateAppMessageShareData',
     'updateTimelineShareData',
     'getLocation',
   ]
 }
+setconfig(defaultConfig);
 class WxWrapper extends Component{
   constructor(props) {
     super(props);

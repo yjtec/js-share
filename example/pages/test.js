@@ -23,7 +23,7 @@ class TestComponent extends React.Component{
     console.log(re);
     // alert(JSON.stringify(re));
     // console.log(re,99999);    
-    // wxUtils.optionMenu(true);
+    //wxUtils.optionMenu(true);
     // wxUtils.share({
     //   title:'三大爷的分享',
     //   desc:'三大爷',
@@ -33,6 +33,7 @@ class TestComponent extends React.Component{
     
 
   }
+  
   render(){
     return <div>123123</div>
   }
